@@ -2,7 +2,19 @@
     ViewData["Title"] = "Home Page";
 }
 
+<h1 class="display-5">The Planets Club</h1>
+<p class="lead">Welcome to the the place to learn about the planets! Blah, blah, blah!</p>
+<hr class="my-4">
 <div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <p class="lead">Read about the history of Gustav Mahler.</p>
+    <p class="lead">
+        <a class="btn btn-primary btn-lg" asp-action="History" role="button">History</a>
+    </p>
+    <hr class="my-4">
+    <p class="lead">Read stories of Gustav Mahler.</p>
+    <p class="lead">
+        <a class="btn btn-primary btn-lg" asp-action="Stories" role="button">Stories</a>
+    </p>
+    <hr class="my-4">
+    <p class="text-info"><em>The date today is @ViewBag.Date</em></p>
 </div>
