@@ -1,7 +1,62 @@
-﻿
-@{
+﻿@{
     ViewData["Title"] = "TakeSurvey";
 }
 
-<h1>TakeSurvey</h1>
-
+<h1>Take A Survey</h1>
+<p>
+    Please be kind enough to take this survey below. If you give us the rate us highly then your comment will be on our homepage! You will be famous!
+</p>
+<form method="post">
+    <div class="form-group">
+        <label class="col-form-label" for="firstName">First Name</label>
+        <input name="firstName" type="text" class="form-control">
+    </div>
+    <div class="form-group">
+        <label class="col-form-label" for="firstName">Last Name</label>
+        <input name="lastName" type="text" class="form-control">
+    </div>
+    <div class="form-group">
+        <label class="col-form-label" for="firstName">City</label>
+        <input name="city" type="text" class="form-control">
+    </div>
+    <div class="form-group">
+        <label class="col-form-label" for="firstName">Country</label>
+        <input name="country" type="text" class="form-control">
+    </div>
+    <p>How many stars do you want to award us with?</p>
+    <div class="form-check" style="margin-bottom: 5px">
+        <label class="form-check-label">
+            <input type="radio" class="form-check-input" name="rating" value="1">
+            1 Star
+        </label>
+    </div>
+    <div class="form-check" style="margin-bottom: 5px">
+        <label class="form-check-label">
+            <input type="radio" class="form-check-input" name="rating" value="2">
+            2 Stars
+        </label>
+    </div>
+    <div class="form-check" style="margin-bottom: 5px">
+        <label class="form-check-label">
+            <input type="radio" class="form-check-input" name="rating" value="3">
+            3 Stars
+        </label>
+    </div>
+    <div class="form-check" style="margin-bottom: 5px">
+        <label class="form-check-label">
+            <input type="radio" class="form-check-input" name="rating" value="4">
+            4 Stars
+        </label>
+    </div>
+    <div class="form-check" style="margin-bottom: 5px">
+        <label class="form-check-label">
+            <input type="radio" class="form-check-input" name="rating" value="5">
+            5 Stars
+        </label>
+    </div>
+    <div class="form-group">
+        <label class="col-form-label" for="storyId">Comments</label>
+        <input name="Comments" type="text" class="form-control">
+    </div>
+    <input type="submit" class="btn btn-primary btn-lg" value="Submit Your Survey" />
+</form>
