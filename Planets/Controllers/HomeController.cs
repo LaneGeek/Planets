@@ -1,10 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
 using Planets.Models;
 
 namespace Planets.Controllers
@@ -30,6 +25,25 @@ namespace Planets.Controllers
         public IActionResult Neptune() => View();
 
         public IActionResult TakeSurvey() => View();
+
+        public IActionResult ThankSurvey() => View();
+
+        [HttpPost]
+        public IActionResult TakeSurvey(string firstName, string lastName, string city, string country,
+            string rating, string comment)
+        {
+            Survey survey = new Survey
+            {
+                FirstName = firstName,
+                LastName = lastName,
+                City = city,
+                Country = country,
+                Rating = rating == "" ? 5: Int32.Parse(rating),
+                Comment = comment,
+                SurveyDateTime = DateTime.Now
+            };
+            return View("ThankSurvey", survey);
+        }
 
         public IActionResult ViewSurveys() => View();
 

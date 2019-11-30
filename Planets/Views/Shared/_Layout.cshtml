@@ -8,87 +8,93 @@
     <title>The Planets Club</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap-sketchy.min.css" />
     <link rel="stylesheet" href="~/css/site.css" />
-    <link rel="icon" type="image/png" href="~/saturn.png"/>
+    <link rel="icon" type="image/png" href="~/saturn.png" />
 </head>
+
+<style type="text/css">
+    p {
+        font-size: 1.3rem
+    }
+</style>
 
 <body style="background-color: #557722; margin: 20px">
 
-<nav class="navbar navbar-expand-lg navbar-dark bg-primary my-shadow">
-    <div class="container">
-        <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">The Planets Club</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="navbar-collapse collapse" id="navbarColor01">
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item">
-                    <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Planets</a>
-                    <div class="dropdown-menu">
-                        <a class="dropdown-item" asp-area="" asp-controller="Home" asp-action="Mercury">Mercury</a>
-                        <a class="dropdown-item" asp-area="" asp-controller="Home" asp-action="Venus">Venus</a>
-                        <a class="dropdown-item" asp-area="" asp-controller="Home" asp-action="Earth">Earth</a>
-                        <a class="dropdown-item" asp-area="" asp-controller="Home" asp-action="Mars">Mars</a>
-                        <a class="dropdown-item" asp-area="" asp-controller="Home" asp-action="Jupiter">Jupiter</a>
-                        <a class="dropdown-item" asp-area="" asp-controller="Home" asp-action="Saturn">Saturn</a>
-                        <a class="dropdown-item" asp-area="" asp-controller="Home" asp-action="Uranus">Uranus</a>
-                        <a class="dropdown-item" asp-area="" asp-controller="Home" asp-action="Neptune">Neptune</a>
-                    </div>
-                </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Survey</a>
-                    <div class="dropdown-menu">
-                        <a class="dropdown-item" asp-area="" asp-controller="Home" asp-action="TakeSurvey">Take Survey</a>
-                        <a class="dropdown-item" asp-area="" asp-controller="Home" asp-action="ViewSurveys">View Surveys</a>
-                    </div>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" asp-area="" asp-controller="Home" asp-action="About">About</a>
-                </li>
-            </ul>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary my-shadow" style="font-size: 22px">
+        <div class="container">
+            <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index" style="font-size: 26px">The Planets Club</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="navbar-collapse collapse" id="navbarColor01">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Planets</a>
+                        <div class="dropdown-menu" style="font-size: 20px">
+                            <a class="dropdown-item" asp-area="" asp-controller="Home" asp-action="Mercury">Mercury</a>
+                            <a class="dropdown-item" asp-area="" asp-controller="Home" asp-action="Venus">Venus</a>
+                            <a class="dropdown-item" asp-area="" asp-controller="Home" asp-action="Earth">Earth</a>
+                            <a class="dropdown-item" asp-area="" asp-controller="Home" asp-action="Mars">Mars</a>
+                            <a class="dropdown-item" asp-area="" asp-controller="Home" asp-action="Jupiter">Jupiter</a>
+                            <a class="dropdown-item" asp-area="" asp-controller="Home" asp-action="Saturn">Saturn</a>
+                            <a class="dropdown-item" asp-area="" asp-controller="Home" asp-action="Uranus">Uranus</a>
+                            <a class="dropdown-item" asp-area="" asp-controller="Home" asp-action="Neptune">Neptune</a>
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Survey</a>
+                        <div class="dropdown-menu" style="font-size: 20px">
+                            <a class="dropdown-item" asp-area="" asp-controller="Home" asp-action="TakeSurvey">Take Survey</a>
+                            <a class="dropdown-item" asp-area="" asp-controller="Home" asp-action="ViewSurveys">View Surveys</a>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" asp-area="" asp-controller="Home" asp-action="About">About</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container" style="padding-top: 40px">
+        <div class="jumbotron my-shadow" style="background-color: #bb66cc; padding-top: 30px; padding-bottom: 20px">
+            <main role="main">
+                @RenderBody()
+            </main>
         </div>
     </div>
-</nav>
 
-<div class="container" style="padding-top: 40px">
-    <div class="jumbotron my-shadow" style="background-color: #bb66cc; padding-top: 30px; padding-bottom: 20px">
-        <main role="main">
-            @RenderBody()
-        </main>
-    </div>
-</div>
+    <footer class="text-muted text-center" style="padding-bottom: 20px">
+        <div class="container">
+            <em>"The best website about the planets"</em> - The Eugene Daily News
+        </div>
+    </footer>
 
-<footer class="text-muted text-center" style="padding-bottom: 20px">
-    <div class="container">
-        <em>"The best website about the planets"</em> - The Eugene Daily News
-    </div>
-</footer>
+    <environment include="Development">
+        <script src="~/lib/jquery/dist/jquery.js"></script>
+        <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.js"></script>
+    </environment>
+    <environment exclude="Development">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"
+                asp-fallback-src="~/lib/jquery/dist/jquery.min.js"
+                asp-fallback-test="window.jQuery"
+                crossorigin="anonymous"
+                integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=">
+        </script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"
+                asp-fallback-src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"
+                asp-fallback-test="window.jQuery && window.jQuery.fn && window.jQuery.fn.modal"
+                crossorigin="anonymous"
+                integrity="sha384-xrRywqdh3PHs8keKZN+8zzc5TX0GRTLCcmivcbNJWm2rs5C8PRhcEn3czEjhAO9o">
+        </script>
+    </environment>
 
-<environment include="Development">
-    <script src="~/lib/jquery/dist/jquery.js"></script>
-    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.js"></script>
-</environment>
-<environment exclude="Development">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"
-            asp-fallback-src="~/lib/jquery/dist/jquery.min.js"
-            asp-fallback-test="window.jQuery"
-            crossorigin="anonymous"
-            integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=">
-    </script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"
-            asp-fallback-src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"
-            asp-fallback-test="window.jQuery && window.jQuery.fn && window.jQuery.fn.modal"
-            crossorigin="anonymous"
-            integrity="sha384-xrRywqdh3PHs8keKZN+8zzc5TX0GRTLCcmivcbNJWm2rs5C8PRhcEn3czEjhAO9o">
-    </script>
-</environment>
+    <script src="~/js/site.js" asp-append-version="true"></script>
 
-<script src="~/js/site.js" asp-append-version="true"></script>
-
-@RenderSection("Scripts", required: false)
+    @RenderSection("Scripts", required: false)
 
 </body>
 

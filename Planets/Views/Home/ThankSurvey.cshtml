@@ -1,0 +1,27 @@
+﻿@model Survey
+
+@{
+    ViewData["Title"] = "ThankSurvey";
+}
+
+<h1>Thank you @Model.FirstName for taking the survey.</h1>
+
+<p>
+    This guy: @{
+        if (Model == null)
+        {
+        <p>Nully it is</p>
+    }
+    else
+    {
+        <p>@Model.FirstName</p>
+        <p>@Model.LastName</p>
+        <p>@Model.City</p>
+        <p>@Model.Country</p>
+        <p>@Model.Rating</p>
+        <p>@Model.Comment</p>
+        <p>@Model.SurveyDateTime </p>
+    }
+
+    }
+    </p>
