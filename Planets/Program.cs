@@ -21,6 +21,7 @@ namespace Planets
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
                     webBuilder.UseStartup<Startup>();
-                });
+                })
+                .UseDefaultServiceProvider(x => x.ValidateScopes = false);
     }
 }

@@ -6,6 +6,11 @@ namespace Planets.Controllers
 {
     public class HomeController : Controller
     {
+        private readonly IRepository _repository;
+
+        // Dependency injection
+        public HomeController(IRepository repository) => _repository = repository;
+
         public IActionResult Index() => View();
 
         public IActionResult Mercury() => View();
@@ -29,8 +34,7 @@ namespace Planets.Controllers
         public IActionResult ThankSurvey() => View();
 
         [HttpPost]
-        public IActionResult TakeSurvey(string firstName, string lastName, string city, string country,
-            string rating, string comment)
+        public IActionResult TakeSurvey(string firstName, string lastName, string city, string country, string rating, string comment)
         {
             Survey survey = new Survey
             {
@@ -42,6 +46,7 @@ namespace Planets.Controllers
                 Comment = comment,
                 SurveyDateTime = DateTime.Now
             };
+            _repository.AddSurvey(survey);
             return View("ThankSurvey", survey);
         }
 

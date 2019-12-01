@@ -5,7 +5,7 @@ namespace Planets.Models
 {
     public class SurveyRepository : IRepository
     {
-        private AppDbContext _context;
+        private readonly AppDbContext _context;
 
         public List<Survey> Surveys => _context.Surveys.ToList();
 

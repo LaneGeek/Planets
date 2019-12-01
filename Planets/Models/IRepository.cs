@@ -2,7 +2,7 @@
 
 namespace Planets.Models
 {
-    interface IRepository
+    public interface IRepository
     {
         List<Survey> Surveys { get; }
 
