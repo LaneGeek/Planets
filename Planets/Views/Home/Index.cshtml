@@ -1,4 +1,6 @@
-﻿@{
+﻿@model IEnumerable<Survey>
+
+@{
     ViewData["Title"] = "Home Page";
 }
 
@@ -15,3 +17,16 @@
 <p>
     Below are three people who just love this website! See what they have to say!
 </p>
+
+@{
+    foreach (var survey in Model)
+    {
+
+        <p>
+            <em>
+                On @survey.SurveyDateTime.ToString("D") at @survey.SurveyDateTime.ToString("h:mm tt") @survey.FirstName from @survey.City, @survey.Country said "@survey.Comment".
+            </em></p>
+
+
+    }
+}

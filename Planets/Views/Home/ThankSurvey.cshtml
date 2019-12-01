@@ -1,27 +1,19 @@
-﻿@model Survey
+﻿@model Tuple<string, string, string, string>
 
 @{
     ViewData["Title"] = "ThankSurvey";
 }
 
-<h1>Thank you @Model.FirstName for taking the survey.</h1>
+<h1>Thank you @Model.Item1 for taking the survey.</h1>
 
 <p>
-    This guy: @{
-                  if (Model == null)
-                  {
-                      <p>Nully it is</p>
-                  }
-                  else
-                  {
-                      <p>@Model.FirstName</p>
-                      <p>@Model.LastName</p>
-                      <p>@Model.City</p>
-                      <p>@Model.Country</p>
-                      <p>@Model.Rating</p>
-                      <p>@Model.Comment</p>
-                      <p>@Model.SurveyDateTime </p>
-                  }
+    You took the time to take this survey. It is highly appreciated. Furthermore you gave us @Model.Item2
+</p>
 
-              }
+<p>
+    We hope you enjoy living in @Model.Item3, @Model.Item4.
+</p>
+
+<p>
+    Have a nice day!
 </p>
