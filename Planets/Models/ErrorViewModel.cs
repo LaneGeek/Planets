@@ -1,5 +1,3 @@
-using System;
-
 namespace Planets.Models
 {
     public class ErrorViewModel

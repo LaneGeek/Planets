@@ -13,7 +13,7 @@ namespace Planets.Controllers
         public HomeController(IRepository repository) => _repository = repository;
 
         // We need the best three most recent surveys on the home page
-        public IActionResult Index() => View(_repository.Surveys.Where(x => x.Rating > 1).OrderByDescending(x => x.SurveyDateTime).Take(4));
+        public IActionResult Index() => View(_repository.Surveys.Where(x => x.Rating == 5).OrderByDescending(x => x.SurveyDateTime).Take(3));
 
         // Pages for the planets, etc
         public IActionResult Mercury() => View();
@@ -37,12 +37,6 @@ namespace Planets.Controllers
         public IActionResult ListOfSurveys() => View(_repository.Surveys);
 
         [HttpPost]
-        public IActionResult SearchByCountry(string country) => View("ListOfSurveys", _repository.Surveys.Where(x => x.Country == country));
-
-        [HttpPost]
-        public IActionResult SearchByRating(int rating) => View("ListOfSurveys", _repository.Surveys.Where(x => x.Rating == rating));
-
-        [HttpPost]
         public IActionResult TakeSurvey(string firstName, string lastName, string city, string country, string rating, string comment)
         {
             // First we add the survey to the repository
@@ -60,7 +54,7 @@ namespace Planets.Controllers
             // Now we create a message to thank him or her based on the rating
             var message = rating switch
             {
-                "1" => "one star! What have we done to deserve this?",
+                "1" => "one star? What have we done to deserve this?",
                 "5" => "five stars! Thank you so much! You will now be mentioned on our home page!",
                 _ => (rating + " stars.")
             };
@@ -73,5 +67,11 @@ namespace Planets.Controllers
 
         [HttpPost]
         public IActionResult ViewSurveys(string password) => password == "password" ? View("SearchSurveys") : View("WrongPassword");
+
+        [HttpPost]
+        public IActionResult SearchByCountry(string country) => View("ListOfSurveys", _repository.Surveys.Where(x => x.Country == country));
+
+        [HttpPost]
+        public IActionResult SearchByRating(int rating) => View("ListOfSurveys", _repository.Surveys.Where(x => x.Rating == rating));
     }
 }
