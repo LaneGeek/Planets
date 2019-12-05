@@ -1,17 +1,17 @@
-﻿@model Tuple<string, string, string, string>
+﻿@model Tuple<Survey, string>
 
 @{
     ViewData["Title"] = "ThankSurvey";
 }
 
-<h1>Thank you @Model.Item1 for taking the survey.</h1>
+<h1>Thank you @Model.Item1.FirstName for taking the survey.</h1>
 
 <p>
     You took the time to take this survey. It is highly appreciated. Furthermore you gave us @Model.Item2
 </p>
 
 <p>
-    We hope you enjoy living in @Model.Item3, @Model.Item4.
+    We hope you enjoy living in @Model.Item1.City, @Model.Item1.Country.
 </p>
 
 <p>

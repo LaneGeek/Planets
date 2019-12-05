@@ -37,30 +37,24 @@ namespace Planets.Controllers
         public IActionResult ListOfSurveys() => View(_repository.Surveys);
 
         [HttpPost]
-        public IActionResult TakeSurvey(string firstName, string lastName, string city, string country, string rating, string comment)
+        public IActionResult TakeSurvey(Survey survey)
         {
-            // First we add the survey to the repository
-            _repository.AddSurvey(new Survey
-            {
-                FirstName = firstName,
-                LastName = lastName,
-                City = city,
-                Country = country,
-                Rating = rating == "" ? 5 : Int32.Parse(rating),
-                Comment = comment,
-                SurveyDateTime = DateTime.Now
-            });
+            // Get the current time and date and add it to the survey
+            survey.SurveyDateTime = DateTime.Now;
+
+            // Add the survey to the repository
+            _repository.AddSurvey(survey);
 
             // Now we create a message to thank him or her based on the rating
-            var message = rating switch
+            var message = survey.Rating switch
             {
-                "1" => "one star? What have we done to deserve this?",
-                "5" => "five stars! Thank you so much! You will now be mentioned on our home page!",
-                _ => (rating + " stars.")
+                1 => "one star? What have we done to deserve this?",
+                5 => "five stars! Thank you so much! You will now be mentioned on our home page!",
+                _ => (survey.Rating + " stars.")
             };
 
-            // Since we are allowed to send only one variable to the view, we will use a Tuple to send many
-            var thankUser = new Tuple<string, string, string, string>(firstName, message, city, country);
+            // Since we are allowed to send only one variable to the view, we will use a Tuple to send two
+            var thankUser = new Tuple<Survey, string>(survey, message);
 
             return View("ThankSurvey", thankUser);
         }
