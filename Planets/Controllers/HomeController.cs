@@ -39,24 +39,32 @@ namespace Planets.Controllers
         [HttpPost]
         public IActionResult TakeSurvey(Survey survey)
         {
-            // Get the current time and date and add it to the survey
-            survey.SurveyDateTime = DateTime.Now;
-
-            // Add the survey to the repository
-            _repository.AddSurvey(survey);
-
-            // Now we create a message to thank him or her based on the rating
-            var message = survey.Rating switch
+            if (ModelState.IsValid)
             {
-                1 => "one star? What have we done to deserve this?",
-                5 => "five stars! Thank you so much! You will now be mentioned on our home page!",
-                _ => (survey.Rating + " stars.")
-            };
+                // Get the current time and date and add it to the survey
+                survey.SurveyDateTime = DateTime.Now;
 
-            // Since we are allowed to send only one variable to the view, we will use a Tuple to send two
-            var thankUser = new Tuple<Survey, string>(survey, message);
+                // Add the survey to the repository
+                _repository.AddSurvey(survey);
 
-            return View("ThankSurvey", thankUser);
+                // Now we create a message to thank him or her based on the rating
+                var message = survey.Rating switch
+                {
+                    1 => "one star? What have we done to deserve this?",
+                    5 => "five stars! Thank you so much! You will now be mentioned on our home page!",
+                    _ => (survey.Rating + " stars.")
+                };
+
+                // Since we are allowed to send only one variable to the view, we will use a Tuple to send two
+                var thankUser = new Tuple<Survey, string>(survey, message);
+
+                return View("ThankSurvey", thankUser);
+            }
+            else
+            {
+                // Validation error
+                return View();
+            }
         }
 
         [HttpPost]
