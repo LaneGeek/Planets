@@ -4,7 +4,7 @@ namespace Planets.Models
 {
     public class FakeRepository : IRepository
     {
-        private static readonly List<Survey> _surveys = new List<Survey>();
+        private readonly List<Survey> _surveys = new List<Survey>();
 
         public List<Survey> Surveys => _surveys;
 
