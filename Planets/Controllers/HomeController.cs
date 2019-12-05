@@ -32,6 +32,9 @@ namespace Planets.Controllers
         public IActionResult ThankSurvey() => View();
         public IActionResult SearchSurveys() => View();
         public IActionResult WrongPassword() => View();
+        public IActionResult SearchByCountry() => View();
+        public IActionResult SearchByRating() => View();
+        public IActionResult ListOfSurveys() => View();
 
         [HttpPost]
         public IActionResult TakeSurvey(string firstName, string lastName, string city, string country, string rating, string comment)
