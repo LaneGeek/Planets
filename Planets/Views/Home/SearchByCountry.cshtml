@@ -1,7 +1,15 @@
-﻿
-@{
+﻿@{
     ViewData["Title"] = "SearchByCountry";
 }
 
 <h1>Search By Country</h1>
 
+<p>Enter the country and press submit. Then you will view all the surveys with that country.</p>
+
+<form method="post">
+    <div class="form-group">
+        <label class="col-form-label" for="country">Country</label>
+        <input name="country" type="text" class="form-control">
+    </div>
+    <input type="submit" class="btn btn-primary btn-lg" value="Submit Your Survey" />
+</form>

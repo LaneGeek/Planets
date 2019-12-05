@@ -1,7 +1,40 @@
-﻿
-@{
+﻿@{
     ViewData["Title"] = "SearchByRating";
 }
 
 <h1>Search By Rating</h1>
+<p>Select the rating and press submit. Then you will view all the surveys with that rating.</p>
 
+<form method="post">
+    <div class="form-check" style="margin-bottom: 5px">
+        <label class="form-check-label">
+            <input type="radio" class="form-check-input" name="rating" value="1">
+            1 Star
+        </label>
+    </div>
+    <div class="form-check" style="margin-bottom: 5px">
+        <label class="form-check-label">
+            <input type="radio" class="form-check-input" name="rating" value="2">
+            2 Stars
+        </label>
+    </div>
+    <div class="form-check" style="margin-bottom: 5px">
+        <label class="form-check-label">
+            <input type="radio" class="form-check-input" name="rating" value="3">
+            3 Stars
+        </label>
+    </div>
+    <div class="form-check" style="margin-bottom: 5px">
+        <label class="form-check-label">
+            <input type="radio" class="form-check-input" name="rating" value="4">
+            4 Stars
+        </label>
+    </div>
+    <div class="form-check" style="margin-bottom: 5px">
+    <label class="form-check-label">
+        <input type="radio" class="form-check-input" name="rating" value="5">
+        5 Stars
+    </label>
+    </div>
+    <input type="submit" class="btn btn-primary btn-lg" value="Submit" />
+</form>

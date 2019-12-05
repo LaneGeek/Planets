@@ -1,6 +1,44 @@
-﻿
+﻿@model IEnumerable<Survey>
+
 @{
     ViewData["Title"] = "ListOfSurveys";
 }
 
 <h1>Surveys</h1>
+
+<table class="table">
+    <thead>
+        <tr class="table-success">
+            <th>Time</th>
+            <th>Date</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>City</th>
+            <th>Country</th>
+            <th>Rating</th>
+            <th>Comment</th>
+        </tr>
+    </thead>
+
+    <tbody>
+
+        @{
+            foreach (var survey in Model)
+            {
+                <tr class="table-primary">
+                    <td>@survey.SurveyDateTime.ToString("h:mm tt")</td>
+                    <td>@survey.SurveyDateTime.ToString("D")</td>
+                    <td>@survey.FirstName</td>
+                    <td>@survey.LastName</td>
+                    <td>@survey.City</td>
+                    <td>@survey.Country</td>
+                    <td>@survey.Rating</td>
+                    <td>@survey.Comment</td>
+                </tr>
+            }
+        }
+
+    </tbody>
+</table>
+
+<a class="btn btn-primary btn-lg" asp-action="SearchSurveys">Back To Search</a>

@@ -34,7 +34,13 @@ namespace Planets.Controllers
         public IActionResult WrongPassword() => View();
         public IActionResult SearchByCountry() => View();
         public IActionResult SearchByRating() => View();
-        public IActionResult ListOfSurveys() => View();
+        public IActionResult ListOfSurveys() => View(_repository.Surveys);
+
+        [HttpPost]
+        public IActionResult SearchByCountry(string country) => View("ListOfSurveys", _repository.Surveys.Where(x => x.Country == country));
+
+        [HttpPost]
+        public IActionResult SearchByRating(int rating) => View("ListOfSurveys", _repository.Surveys.Where(x => x.Rating == rating));
 
         [HttpPost]
         public IActionResult TakeSurvey(string firstName, string lastName, string city, string country, string rating, string comment)
