@@ -13,13 +13,13 @@ namespace Planets.Migrations
                 {
                     SurveyId = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    FirstName = table.Column<string>(nullable: true),
-                    LastName = table.Column<string>(nullable: true),
-                    City = table.Column<string>(nullable: true),
-                    Country = table.Column<string>(nullable: true),
+                    SurveyDateTime = table.Column<DateTime>(nullable: false),
+                    FirstName = table.Column<string>(nullable: false),
+                    LastName = table.Column<string>(nullable: false),
+                    City = table.Column<string>(nullable: false),
+                    Country = table.Column<string>(nullable: false),
                     Rating = table.Column<int>(nullable: false),
-                    Comment = table.Column<string>(nullable: true),
-                    SurveyDateTime = table.Column<DateTime>(nullable: false)
+                    Comment = table.Column<string>(nullable: false)
                 },
                 constraints: table =>
                 {
