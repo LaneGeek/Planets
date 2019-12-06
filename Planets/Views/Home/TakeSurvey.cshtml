@@ -1,4 +1,6 @@
-﻿@{
+﻿@model Survey
+
+@{
     ViewData["Title"] = "TakeSurvey";
 }
 
@@ -6,58 +8,58 @@
 <p>
     Please be kind enough to take this survey below. If you give us five stars, your comment will be on our homepage!
 </p>
-<form method="post">
+<form asp-action="TakeSurvey" method="post">
     <div class="lead text-warning" asp-validation-summary="All"></div>
     <div class="form-group">
-        <label class="col-form-label" for="FirstName">First Name</label>
-        <input name="FirstName" type="text" class="form-control">
+        <label class="col-form-label" asp-for="FirstName">First Name</label>
+        <input class="form-control" asp-for="FirstName">
     </div>
     <div class="form-group">
-        <label class="col-form-label" for="LastName">Last Name</label>
-        <input name="LastName" type="text" class="form-control">
+        <label class="col-form-label" asp-for="LastName">Last Name</label>
+        <input class="form-control" asp-for="LastName">
     </div>
     <div class="form-group">
-        <label class="col-form-label" for="City">City</label>
-        <input name="City" type="text" class="form-control">
+        <label class="col-form-label" asp-for="City">City</label>
+        <input class="form-control" asp-for="City">
     </div>
     <div class="form-group">
-        <label class="col-form-label" for="Country">Country</label>
-        <input name="Country" type="text" class="form-control">
+        <label class="col-form-label" asp-for="Country">Country</label>
+        <input class="form-control" asp-for="Country">
     </div>
     <p>How many stars do you want to award us with?</p>
     <div class="form-check" style="margin-bottom: 5px">
         <label class="form-check-label">
-            <input type="radio" class="form-check-input" name="Rating" value="1">
+            <input type="radio" class="form-check-input" asp-for="Rating" value="1">
             1 Star
         </label>
     </div>
     <div class="form-check" style="margin-bottom: 5px">
         <label class="form-check-label">
-            <input type="radio" class="form-check-input" name="Rating" value="2">
+            <input type="radio" class="form-check-input" asp-for="Rating" value="2">
             2 Stars
         </label>
     </div>
     <div class="form-check" style="margin-bottom: 5px">
         <label class="form-check-label">
-            <input type="radio" class="form-check-input" name="Rating" value="3">
+            <input type="radio" class="form-check-input" asp-for="Rating" value="3">
             3 Stars
         </label>
     </div>
     <div class="form-check" style="margin-bottom: 5px">
         <label class="form-check-label">
-            <input type="radio" class="form-check-input" name="Rating" value="4">
+            <input type="radio" class="form-check-input" asp-for="Rating" value="4">
             4 Stars
         </label>
     </div>
     <div class="form-check" style="margin-bottom: 5px">
         <label class="form-check-label">
-            <input type="radio" class="form-check-input" name="Rating" value="5" checked>
+            <input type="radio" class="form-check-input" asp-for="Rating" value="5">
             5 Stars
         </label>
     </div>
     <div class="form-group">
-        <label class="col-form-label" for="Comment">Comments</label>
-        <input name="Comment" type="text" class="form-control">
+        <label class="col-form-label" asp-for="Comment">Comments</label>
+        <input class="form-control" asp-for="Comment">
     </div>
     <input type="submit" class="btn btn-primary btn-lg" value="Submit Your Survey" />
 </form>
