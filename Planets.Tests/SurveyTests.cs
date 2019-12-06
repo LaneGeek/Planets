@@ -60,7 +60,15 @@ namespace Planets.Tests
             var homeController = new HomeController(Repository);
 
             // Act
-            homeController.TakeSurvey("Peter", "Atkins", "Rome", "Italy", "2", "Boring site");
+            homeController.TakeSurvey(new Survey
+            {
+                FirstName = "Peter",
+                LastName = "Atkins",
+                City = "Rome",
+                Country = "Italy",
+                Rating = 2,
+                Comment = "Boring site"
+            });
 
             // Assert
             Assert.Equal("Peter", Repository.Surveys[^1].FirstName);
@@ -71,7 +79,7 @@ namespace Planets.Tests
             Assert.Equal("Boring site", Repository.Surveys[^1].Comment);
             // Put today's date below to test
             Assert.Equal(new DateTime(2019, 12, 5), Repository.Surveys[^1].SurveyDateTime.Date);
-            // Lets also ensure that we now have a total of four surveys in our repository
+            // Ensure that we now have a total of four surveys in our repository
             Assert.Equal(4, Repository.Surveys.Count);
         }
 
