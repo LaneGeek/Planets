@@ -21,12 +21,8 @@
 @{
     foreach (var survey in Model)
     {
-
-        <p>
-            <em>
-                On @survey.SurveyDateTime.ToString("D") at @survey.SurveyDateTime.ToString("h:mm tt") @survey.FirstName from @survey.City, @survey.Country said "@survey.Comment".
-            </em></p>
-
-
+        <p class="text-warning">
+            On @survey.SurveyDateTime.ToString("D") at @survey.SurveyDateTime.ToString("h:mm tt") @survey.FirstName from @survey.City, @survey.Country said "@survey.Comment".
+        </p>
     }
 }

@@ -57,14 +57,10 @@ namespace Planets.Controllers
 
                 // Since we are allowed to send only one variable to the view, we will use a Tuple to send two
                 var thankUser = new Tuple<Survey, string>(survey, message);
-
                 return View("ThankSurvey", thankUser);
             }
-            else
-            {
-                // Validation error
-                return View();
-            }
+            // Otherwise validation error
+            return View();
         }
 
         [HttpPost]
