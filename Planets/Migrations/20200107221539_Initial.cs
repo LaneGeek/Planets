@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Planets.Migrations
 {
-    public partial class initial : Migration
+    public partial class Initial : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -14,10 +14,10 @@ namespace Planets.Migrations
                     SurveyId = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     SurveyDateTime = table.Column<DateTime>(nullable: false),
-                    FirstName = table.Column<string>(nullable: false),
-                    LastName = table.Column<string>(nullable: false),
-                    City = table.Column<string>(nullable: false),
-                    Country = table.Column<string>(nullable: false),
+                    FirstName = table.Column<string>(maxLength: 20, nullable: false),
+                    LastName = table.Column<string>(maxLength: 30, nullable: false),
+                    City = table.Column<string>(maxLength: 20, nullable: false),
+                    Country = table.Column<string>(maxLength: 20, nullable: false),
                     Rating = table.Column<int>(nullable: false),
                     Comment = table.Column<string>(nullable: false)
                 },
